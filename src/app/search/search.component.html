@@ -1,0 +1,39 @@
+<div class="search">
+  <!-- mat-from-field Ввод в поиске, работает по нажатию Enter -->
+  <mat-form-field
+    class="search-form-field"
+    color="primary"
+    appearance="outline"
+  >
+    <mat-label class="Search1">Search</mat-label>
+    <input matInput type="text" (keydown.enter)="search($event)" />
+  </mat-form-field>
+  <!-- div ниже отображает полученные результаты и с поощью ngFor выводит либо полученные книги, либо фразу no search books -->
+  <div *ngFor="let book of books">
+    <img src="{{ book.image }}" alt="" />
+    <p>Title : {{ book.title }}</p>
+    <p>Description : {{ book.subtitle }}</p>
+    <p>Price : {{ book.price }}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      onclick="style.display='none'"
+      (click)="bookmark(book)"
+    >
+      Bookmark it!
+      <!-- Данная кнопка выполняет функцию bookmark -->
+    </button>
+  </div>
+  <p *ngIf="!books.length">No search books</p>
+
+  <button
+    class="button"
+    *ngIf="books.length"
+    mat-raised-button
+    color="accent"
+    (click)="addBooks()"
+  >
+    Add Books
+     <!-- Данная кнопка выполняет функцию addBooks -->
+  </button>
+</div>

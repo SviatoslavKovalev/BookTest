@@ -1,0 +1,13 @@
+<!-- контейнер где хранятся избранные книги -->
+<div [ngClass]="{ class1: true }" class="Favorit" *ngFor="let book of books">
+  <img src="{{ book.image }}" alt="" />
+  <p>Имя : {{ book.title }}</p>
+  <p>Описание : {{ book.subtitle }}</p>
+  <p>Цена : {{ book.price }}</p>
+  <button mat-raised-button color="primary" (click)="remote(book)">
+    Remote it!
+     <!-- Данная кнопка выполняет функцию remote -->
+  </button>
+</div>
+
+<p *ngIf="!books.length" class="Favorit">No favorites books</p>
