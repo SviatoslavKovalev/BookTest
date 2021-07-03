@@ -23,22 +23,6 @@ export class ApiService {
     const queryUrl = `${url}${params}`;
 
     return this._http.get(queryUrl)
-    // .pipe(
-    //   map((response) => {
-    //     return response.pipe(map((item: IBookInfo) => {
-    //       const urlArr = [];
-    //       const bookObj = {
-    //         image: item.image,
-    //         isbn13: item.isbn13,
-    //         price: item.price,
-    //         subtitle: item.subtitle,
-    //         title: item.title,
-    //         url: item.url,
-    //       };
-    //       urlArr.push(bookObj);
-    //       return urlArr;
-    //     }));
-    //   })
-    // );
+  
   }
 }
